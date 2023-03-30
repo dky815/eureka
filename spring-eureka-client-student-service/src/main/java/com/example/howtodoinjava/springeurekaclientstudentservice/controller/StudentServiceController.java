@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.howtodoinjava.springeurekaclientstudentservice.domain.Student;
+import com.example.howtodoinjava.springeurekaclientstudentservice.domain.*;
 
 @RestController
 public class StudentServiceController {
-
-	private static Map<String, List<Student>> schooDB = new HashMap<String, List<Student>>();
+	private static Map<String, List<Student>> schooDB;
 
 	static {
 		schooDB = new HashMap<String, List<Student>>();

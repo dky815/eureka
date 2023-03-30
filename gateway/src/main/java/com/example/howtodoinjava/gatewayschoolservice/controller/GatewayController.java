@@ -1,4 +1,4 @@
-package com.example.howtodoinjava.springeurekaclientschoolservice.controller;
+package com.example.howtodoinjava.gatewayschoolservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -12,18 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-public class SchoolServiceController {
+public class GatewayController {
 	@Autowired
 	RestTemplate restTemplate;
 
-	@RequestMapping(value = "/getSchoolDetails/{schoolname}", method = RequestMethod.GET)
+	@RequestMapping(value = "/gateway/{schoolname}", method = RequestMethod.GET)
 	public String getStudents(@PathVariable String schoolname) {
 		System.out.println("Getting School details for " + schoolname);
-//		String response = restTemplate.exchange("http://student-service/getStudentDetailsForSchool/{schoolname}", HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
-//		}, schoolname).getBody();
+		String studentResponse = restTemplate.exchange("http://student-service/getStudentDetailsForSchool/{schoolname}", HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
+		}, schoolname).getBody();
+		String schoolResponse = restTemplate.exchange("http://school-service/getSchoolDetails/{schoolname}", HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
+		}, schoolname).getBody();
+		System.out.println("studentResponse Received as " + studentResponse);
 
-
-		return "8888 University Dr W, Burnaby, BC V5A 1S6";
+		return "School Info -  " + schoolResponse + " \n Student Details " + studentResponse;
 	}
 
 	@Bean
