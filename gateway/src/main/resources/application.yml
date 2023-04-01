@@ -5,9 +5,11 @@ eureka:
   instance:
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2
+    # prefer-ip-address: true
+    # ip-address: 54.200.13.243
   client:
     serviceUrl:
-      defaultZone: http://172.31.66.160:8761/eureka/
+      defaultZone: http://172.31.45.40:8761/eureka/
     healthcheck:
       enabled: true
     lease:
