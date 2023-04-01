@@ -4,7 +4,7 @@ RUN  apk --no-cache add openjdk8 git
 
 RUN \ 
     git clone https://github.com/dky815/eureka.git && \
-    cd eureka/spring-eureka-client-school-service && \
+    cd eureka/gateway && \
     chmod +x ./mvnw && \
     ./mvnw clean package
 
