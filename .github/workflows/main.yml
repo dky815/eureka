@@ -28,7 +28,7 @@ jobs:
           REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
           REGISTRY_ALIAS: 'x1j4y3j4'
           REPOSITORY: 'spring-eureka-server'
-          IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: 'latest'
         run: |
           docker build -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
@@ -58,7 +58,7 @@ jobs:
           REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
           REGISTRY_ALIAS: 'x1j4y3j4'
           REPOSITORY: 'gateway'
-          IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: 'latest'
         run: |
           docker build -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
@@ -88,7 +88,7 @@ jobs:
           REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
           REGISTRY_ALIAS: 'x1j4y3j4'
           REPOSITORY: 'spring-eureka-client-school-service'
-          IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: 'latest'
         run: |
           docker build -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
@@ -118,7 +118,7 @@ jobs:
           REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
           REGISTRY_ALIAS: 'x1j4y3j4'
           REPOSITORY: 'spring-eureka-client-student-service'
-          IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: 'latest'
         run: |
           docker build -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
